@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="./p5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+
+
+    
+
+    <div class="canvas-container">
+    <div class="background">
+
+      <div class="firstline">
+
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+        <img src="test.png" alt="" id="savedImage">
+       
+        
+      </div>
+
+     
+    
+    </div>
+
+    <main>
+    </main>
+    
+    <p>마우스를 드래그하거나 클릭해보세요.</p>
+    <script src="sketch.js"></script>
+
+    <div id="reset" onclick="clearStars()">RESET</div>
+    <div id="camera" onclick="toggleCamera()">Camera Off</div>
+
+    
+    
+
+    
+    <div onClick="captureScreen()" id = "capture"><img src="pointer.png" alt="" id="image1"><img src="pointer2.png" alt="" id="image2"></div>
+
+    <div id="captureInfo" style="display: none;"></div>
+
+    <div id="event"><img src="event1.png" alt=""></div>
+    <div id="eventcopy"><img src="event.png" alt=""></div>
+    <div id="eventpopup"><p id="back">돌아가기</p> <span>안녕하세요! <br> 서울시립대학교 시각디자인학과 4명의 <br>학우들로 구성된 팀 Shft입니다.<br> 재밌는 사진을 찍으셨다면 @shft_4를 태그하여 <br> 인스타그램 스토리를 업로드해주세요!<br> 놀러와주셔서 감사합니다!</span></div>
+
+    <div id="eventpopupen"><p id="back2">BACK</p> <span>Hello! I'm Shft, a team of four students <br> from the Department of Visual Design <br>at University of Seoul.<br>If you took a fun picture, please upload your Instagram story by tagging @shft_4!<br>Thank you for coming!</span></div>
+
+
+    
+    
+    
+    <script>
+
+let isCameraOn = true;
+
+function toggleCamera() {
+  isCameraOn = !isCameraOn;
+
+  if (isCameraOn) {
+    document.getElementById('camera').textContent = 'Camera Off';
+  } else {
+    document.getElementById('camera').textContent = 'Camera On';
+  }
+}
+
+      // 저장된이미지정보
+      function showImageInfo(fileName) {
+        const imageInfo = document.getElementById('captureInfo');
+        imageInfo.textContent = `저장된 이미지 번호: ${fileName}`;
+        imageInfo.style.display = 'block';
+
+
+        setTimeout(() => {
+          imageInfo.style.display = 'none';
+        }, 8000);
+      }
+
+      document.getElementById('event').addEventListener('click', function() {
+  // eventpopup div 토글
+  let eventPopup = document.getElementById('eventpopup');
+  eventPopup.style.display = (eventPopup.style.display === 'none' || eventPopup.style.display === '') ? 'block' : 'none';
+
+  
+});
+
+document.getElementById('eventcopy').addEventListener('click', function() {
+  // eventpopup div 토글
+  let eventPopup = document.getElementById('eventpopupen');
+  eventPopup.style.display = (eventPopup.style.display === 'none' || eventPopup.style.display === '') ? 'block' : 'none';
+
+  
+});
+
+document.getElementById('back').addEventListener('click', function() {
+  // eventpopup div 토글
+  let eventPopup = document.getElementById('eventpopup');
+  eventPopup.style.display = (eventPopup.style.display === 'none' || eventPopup.style.display === '') ? 'block' : 'none';
+
+  
+});
+
+
+document.getElementById('back2').addEventListener('click', function() {
+  // eventpopup div 토글
+  let eventPopup = document.getElementById('eventpopupen');
+  eventPopup.style.display = (eventPopup.style.display === 'none' || eventPopup.style.display === '') ? 'block' : 'none';
+
+  
+});
+
+
+      
+    </script>
+
+    
+    
+    
+
+  </body>
+</html>

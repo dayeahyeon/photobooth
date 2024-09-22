@@ -1,0 +1,345 @@
+*{box-sizing: border-box;}
+
+@font-face {
+  font-family: 'DungGeunMo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+    padding: 0;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom:20px;
+    cursor:url(mouse.png), 20 20;
+    position:relative;
+  }
+
+
+ #capture { 
+  display: inline-block;
+  color: #ffffff;
+  margin-top:-7px;
+  
+} 
+
+
+
+/* 비디오감싸는흰박스 */
+.canvas-container {
+
+  display: inline-block;
+  background-color: #f6f6f6;
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 1); 
+  border-radius: 30px; 
+  overflow: hidden; 
+}
+
+/* 이미지 저장시 뜨는 텍스트 */
+#captureInfo{
+  font-family: "paybooc-Light", sans-serif;
+  font-weight: 400;
+  margin-bottom:5px;
+  color:black;
+  font-size: 15px;
+}
+
+/* 뒷배경 */
+.background {
+  background-color:#98ff98;
+  background-size: cover;
+  width: 100%; 
+  height: 100vh;
+  position: fixed; 
+  top:0;
+  left: 0; 
+  z-index: -5;
+  
+}
+
+
+ 
+ 
+@keyframes scale {
+  0% {
+    transform: scale(1) rotate(-18.5deg);;
+  }
+  50% { 
+    transform: scale(1) rotate(-18.5deg);;
+  }
+  100% {
+    transform: scale(1) rotate(-18.5deg);;
+  }
+  
+}
+  
+
+
+/* 카메라버튼1 */
+#image1 {
+  width:60px;
+  height:60px;
+  position:relative;
+  cursor:pointer;
+  animation: rotate 1s  infinite; 
+}
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate( -45deg );
+  }
+
+  100% {
+    transform: rotate( 90deg );
+  }
+}
+
+
+/* 카메라버튼2 */
+#image2 {
+  width:60px;
+  height:60px;
+  position:absolute;
+  display:none;
+  margin-top:-65px;
+  cursor:pointer;
+ 
+}
+
+/* 카메라호버시이미지 */
+#capture:hover #image2 {
+  display:block;
+  
+}
+
+/* EVENT버튼 */
+#eventpopup > a:link {
+  
+  cursor:pointer;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  margin-left: -55px;
+  text-align: center;
+  padding:4px 15px;
+  border-radius: 20px;
+  background-color:rgb(0, 0, 0);
+  color:rgb(0, 255, 13);
+  font-family: 'DungGeunMo';
+  font-weight: 600;
+  top:240px;
+  position:absolute;
+  cursor:pointer;
+
+
+}
+
+#eventpopupen > a:link {
+  
+  cursor:pointer;
+  text-decoration: none;
+  font-size: 20px;
+  display: inline-block;
+  margin-left: -35px;
+  text-align: center;
+  padding:4px 15px;
+  border-radius: 20px;
+  background-color:rgb(0, 0, 0);
+  color:rgb(0, 255, 13);
+  font-family: 'DungGeunMo';
+  font-weight: 600;
+  top:240px;
+  position:absolute;
+  cursor:pointer;
+
+
+}
+
+
+/* DRAG&CLICK 텍스트 */
+p {
+  position: absolute;
+  top:4%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 3px 8px;
+  font-weight:800;
+  font-size:30px;
+  color:#00ff00;
+  animation: blink 1s infinite;
+  background-color: black;
+  font-family: 'DungGeunMo';
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+/* 리셋버튼 */
+#reset{
+  font-size: 14px;
+  cursor:pointer;
+  position:absolute;
+  margin-left:8px;
+  top:755px;
+  text-align: center;
+  padding:3px 10px;
+  border-radius: 20px;
+  background-color:rgb(4, 255, 0);
+  color:rgb(255, 255, 255);
+  font-family: "paybooc-Light", sans-serif;
+  font-weight: 600;
+  
+}
+
+#camera{
+  font-size: 14px;
+  cursor:pointer;
+  position:absolute;
+  margin-left:970px;
+  top:755px;
+  text-align: center;
+  padding:3px 11px;
+  border-radius: 20px;
+  background-color:rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+  font-family: "paybooc-Light", sans-serif;
+  font-weight: 600;
+
+}
+
+
+
+
+
+#webcamContainer {
+  position: relative;
+  width: 1070px;
+  height: 750px;
+  margin: 0 auto;
+}
+
+#webcamArea {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+
+#eventpopup{
+  width:500px;
+  height:300px;
+  color:black;
+  background-color: white;
+  text-align:center;
+  position:absolute;
+  top:190px;
+  margin-left:260px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9); 
+  background-image: url(eventpopup.png);
+  display:none; 
+}
+
+#eventpopupen{
+  width:500px;
+  height:300px;
+  color:black;
+  background-color: white;
+  text-align:center;
+  position:absolute;
+  top:190px;
+  margin-left:260px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9); 
+  background-image: url(eventpopup.png);
+  display:none; 
+}
+
+#eventpopup span{ 
+  font-family: 'DungGeunMo';
+  font-size:20px;
+  position: absolute;
+  margin-left:-230px;
+  padding:20px;
+  top:70px;
+  color:#000000;
+  z-index: 1;
+}
+
+#eventpopupen span{ 
+  font-family: 'DungGeunMo';
+  font-size:20px;
+  position: absolute;
+  margin-left:-250px;
+  top:90px;
+  color:#000000;
+  z-index: 1;
+}
+
+#back{ 
+  font-family: 'DungGeunMo';
+  font-size:16px;
+  position: absolute;
+  top:30px;
+  color:#ffffff;
+  z-index: 1;
+  animation:none;
+  cursor:pointer;
+}
+
+#back2{ 
+  font-family: 'DungGeunMo';
+  font-size:16px;
+  position: absolute;
+  top:30px;
+  color:#ffffff;
+  z-index: 1;
+  animation:none;
+  cursor:pointer;
+  margin-left:5px;
+}
+
+#event img{width:130px;height:130px;animation: pulseAnimation 1.5s infinite;}
+#event {
+  position: absolute;
+  margin-top:-100px;
+  margin-left:-280px;
+  cursor:pointer;
+}
+
+#eventcopy img{width:130px;height:130px;animation: pulseAnimation 1.5s infinite;}
+#eventcopy {
+  position: absolute;
+  margin-top:-100px;
+  margin-left:1210px;
+  cursor:pointer;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
